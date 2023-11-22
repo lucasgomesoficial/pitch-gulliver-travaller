@@ -27,33 +27,43 @@ export function Search() {
   };
 
   return (
-    <div className="bg-primary h-60 px-[10%] flex justify-center items-center">
-      <div className="bg-background h-44 p-6 w-full rounded-2xl text-zinc-500 flex flex-col gap-4">
-        <p className="text-xl font-semibold">
-          Aluguéis por temporadas: casas, apartamentos e chalés
-        </p>
-        <form className="flex gap-2" onSubmit={handleSubmit(onSubmit)}>
-          <div className="w-full">
-            <Input
-              className={cn("bg-secondary", errors.search && "placeholder:text-destructive")}
-              placeholder={!errors.search ? "Destino" : "Destino é um campo obrigatório"}
-              {...register("search", { required: true })}
-            />
-          </div>
-          <DatePicker disabled={isChecked} pickDate={setValue} />
-          <Button type="submit" variant="outline" className="flex gap-2">
-            <IconSearch size={20} />
-            Buscar
-          </Button>
-        </form>
+    <div className="h-fit bg-primary p-5 rounded-2xl text-secondary flex flex-col gap-4">
+      <p className="text-xl font-semibold">Hospedagens</p>
+      <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <Input
+            className={cn(
+              "bg-background text-foreground placeholder:text-foreground",
+              errors.search && "placeholder:text-destructive"
+            )}
+            placeholder={
+              !errors.search ? "Destino" : "Destino é um campo obrigatório"
+            }
+            {...register("search", { required: true })}
+          />
+        </div>
+        <DatePicker
+          className="text-foreground"
+          disabled={isChecked}
+          pickDate={setValue}
+        />
         <div className="flex items-center justify-center gap-2">
           <Switch
+            className="data-[state=checked]:bg-foreground"
             checked={isChecked}
             onCheckedChange={() => setIsChecked(!isChecked)}
           />
           <p>Ainda não defini as datas</p>
         </div>
-      </div>
+        <Button
+          type="submit"
+          variant="outline"
+          className="flex gap-2 text-foreground text-xl py-6"
+        >
+          <IconSearch size={20} />
+          Buscar
+        </Button>
+      </form>
     </div>
   );
 }

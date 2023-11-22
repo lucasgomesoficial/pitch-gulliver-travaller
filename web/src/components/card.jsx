@@ -1,6 +1,6 @@
 export function Card({ img, altImage, city, title }) {
   return (
-    <div className="h-52 flex rounded-2xl gap-8">
+    <div className="h-52 flex rounded-2xl gap-8 bg-background">
       <div className="basis-1/3">
         <img className="h-full w-full rounded-2xl" src={img} alt={altImage} />
       </div>

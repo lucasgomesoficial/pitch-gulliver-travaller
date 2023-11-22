@@ -1,24 +1,24 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import { User, Leaf, Home, Heart } from "lucide-react";
 import { ROUTER_CONFIG } from "../config/constants";
 
 export function Header() {
-  const style = "border-b-2 border-secondary hover:border-primary";
+  const style = "border-b-2 border-background hover:border-primary";
   const styleActive = "border-b-2 border-primary";
 
   return (
-    <header className="flex px-24 justify-between h-32">
-      <div className="flex gap-2 text-3xl items-center font-bold">
+    <header className="flex px-[5%] justify-between h-32">
+      <Link className="flex gap-2 text-3xl items-center font-bold">
         <Leaf className="text-primary" size={30} strokeWidth={3} />
         <h1>
           Gu<span className="text-primary">Traveller</span>
         </h1>
-      </div>
+      </Link>
       <nav className="flex gap-8 items-center">
         <NavLink
           className={({ isActive }) => (isActive ? styleActive : style)}
-          to={ROUTER_CONFIG.HOME}
+          to={ROUTER_CONFIG.ACCOMMODATIONS}
         >
           <span className="flex flex-col items-center">
             <Home size={20} strokeWidth={2} className="text-primary" />

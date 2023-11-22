@@ -1,6 +1,6 @@
 import { addDays, format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { cn } from "../lib/utils";
 import {
@@ -11,14 +11,20 @@ import {
   PopoverTrigger,
 } from "./index";
 
-export function DatePicker({ className, disabled }) {
+export function DatePicker({ className, disabled, pickDate }) {
   const [date, setDate] = useState({
     from: new Date(2022, 0, 20),
     to: addDays(new Date(2022, 0, 20), 20),
   });
 
+  useEffect(() => {
+    pickDate("datePicker", date);
+  }, [date]);
+
   return (
-    <div className={cn("grid gap-2", className, disabled && "cursor-not-allowed")}>
+    <div
+      className={cn("grid gap-2", className, disabled && "cursor-not-allowed")}
+    >
       <Popover>
         <PopoverTrigger asChild>
           <Button
@@ -26,7 +32,7 @@ export function DatePicker({ className, disabled }) {
             disabled={disabled}
             variant={"outline"}
             className={cn(
-              "w-[300px] justify-start text-left font-normal",
+              "w-full justify-start text-left font-normal bg-secondary",
               !date && "text-muted-foreground"
             )}
           >
