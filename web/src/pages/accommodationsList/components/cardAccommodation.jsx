@@ -23,9 +23,9 @@ export function CardAccommodation() {
           São Paulo, Brasil. A 1,18 km do centro
         </p>
         <div className="flex">
-          <Star className="text-background" fill="#ffa500" />
-          <Star className="text-background" fill="#ffa500" />
-          <Star className="text-background" fill="#ffa500" />
+          {Array.from({ length: 3 }, (_, index) => (
+            <Star key={index} className="text-background" fill="#ffa500" />
+          ))}
         </div>
       </div>
       <div className="basis-3/5 flex flex-col py-8 justify-between">

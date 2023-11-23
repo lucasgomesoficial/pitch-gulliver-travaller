@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
-import { Header, Footer } from "../components/index";
+import { Footer, Header, Toaster } from "../components/index";
 
 export function Layout() {
   return (
     <>
       <Header />
+      <Toaster />
       <Outlet />
       <Footer />
     </>

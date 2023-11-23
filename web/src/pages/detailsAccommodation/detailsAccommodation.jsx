@@ -10,9 +10,9 @@ export function DetailsAccommodation() {
         <div className="flex flex-col gap-2">
           <h3 className="text-2xl font-bold">Dan Inn Planalto São Paulo</h3>
           <div className="flex">
-            <Star className="text-background" fill="#ffa500" />
-            <Star className="text-background" fill="#ffa500" />
-            <Star className="text-background" fill="#ffa500" />
+            {Array.from({ length: 3 }, (_, index) => (
+              <Star key={index} className="text-background" fill="#ffa500" />
+            ))}
           </div>
           <p className="font-light text-xs">
             São Paulo, Brasil. A 1,18 km do centro
