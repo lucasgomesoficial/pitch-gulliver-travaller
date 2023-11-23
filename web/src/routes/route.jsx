@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ROUTER_CONFIG } from "../config/constants";
 import {
-  Layout,
-  Home,
-  ErrorPage,
   About,
   AccommodationsList,
   DetailsAccommodation,
+  ErrorPage,
+  Home,
+  Layout,
 } from "../pages/index";
-import { ROUTER_CONFIG } from "../config/constants";
 
 const router = createBrowserRouter([
   {
